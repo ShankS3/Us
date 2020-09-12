@@ -7,16 +7,20 @@
  */
 
 import React from 'react';
-import {StatusBar} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import Login from '@components/Login';
 
+const Stack = createStackNavigator();
+
 const App = () => {
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <Login />
-    </>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login" >
+        <Stack.Screen name="Login" component={Login} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
